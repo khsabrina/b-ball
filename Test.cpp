@@ -4,13 +4,11 @@ using namespace std;
 using namespace ariel;
 TEST_CASE("Teams tests"){
     vector<Team*> myTeam;
-    CHECK_THROWS(myTeam.push_back(new Team("",0)));
-    CHECK_THROWS(myTeam.push_back(new Team("\r",0)));
-    CHECK_THROWS(myTeam.push_back(new Team("\n",0)));
-    CHECK_THROWS(myTeam.push_back(new Team("\t",0)));
-    CHECK_THROWS(myTeam.push_back(new Team("\r",0)));
-    CHECK_THROWS(myTeam.push_back(new Team(" ",0)));
-    CHECK_NOTHROW(myTeam.push_back(new Team("1",0)));
+    CHECK_THROWS(myTeam.push_back(new Team("1",6)));
+    CHECK_THROWS(myTeam.push_back(new Team("1",7)));
+    CHECK_THROWS(myTeam.push_back(new Team("1",8)));
+    CHECK_THROWS(myTeam.push_back(new Team("1",9)));
+    CHECK_NOTHROW(myTeam.push_back(new Team("1",0.76)));
     CHECK_NOTHROW(myTeam.push_back(new Team("2",0.4)));
     CHECK_NOTHROW(myTeam.push_back(new Team("3",0.2)));
     CHECK_NOTHROW(myTeam.push_back(new Team("5",0.3)));
@@ -34,8 +32,10 @@ TEST_CASE("Teams tests"){
     CHECK_NOTHROW(myTeam.push_back(new Team("19",0.3)));
     CHECK_NOTHROW(myTeam.push_back(new Team("20",0.3)));
     Leauge* new_game = new Leauge(myTeam);
-    CHECK_THROWS(new_game->printLeauge(5));
+    CHECK_THROWS(new_game->printLeauge(7));
+    CHECK_THROWS(new_game->printLeauge(1));
     new_game->startLeauge();
-    CHECK_NOTHROW(new_game->printLeauge(5));
+    CHECK_NOTHROW(new_game->printLeauge(7));
+     CHECK_NOTHROW(new_game->printLeauge(1));
 
 }

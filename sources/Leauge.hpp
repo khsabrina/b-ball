@@ -1,7 +1,6 @@
-#ifndef EX5_PARTA_ORGCHART_H
-#define EX5_PARTA_ORGCHART_H
-
-#endif //EX5_PARTA_ORGCHART_H
+#ifndef EX6_LEAUGE_H
+#define EX6_LEAUGE_H
+#endif 
 #pragma once
 #include <iostream>
 #include <vector>
@@ -17,16 +16,12 @@ namespace ariel {
     class Leauge {
     public:
         vector<Team*> teams;
-        bool leaugeEnd;
-
+        bool active;
         Leauge();
         Leauge(vector<Team*> teams);
-
         ~Leauge();
-
         void startLeauge();
-
-        void fixLeauge();
+        void order_leauge();
 
         void printLeauge(int limit);
     };
